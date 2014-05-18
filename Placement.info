@@ -1,0 +1,12 @@
+﻿<Placement>
+    <Place Parts_Facebook_SiteSettings="Content:20"/>
+    
+    <Place Parts_LikeBox="Content:10"/>
+    <Place Parts_LikeBox_Edit="Content:2"/>
+    <Place Parts_Facepile="Content:10.1"/>
+    <Place Parts_Facepile_Edit="Content:2.1"/>
+    <Place Parts_ActivityFeed="Content:10.2"/>
+    <Place Parts_ActivityFeed_Edit="Content:2.2"/>
+    <Place Parts_Recommendation="Content:10.3"/>
+    <Place Parts_Recommendation_Edit="Content:2.3"/>
+</Placement>

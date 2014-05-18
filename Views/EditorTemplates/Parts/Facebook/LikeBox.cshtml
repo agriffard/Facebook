@@ -1,0 +1,41 @@
+﻿@model Facebook.Models.LikeBoxPart
+@using Orchard.Utility.Extensions;
+@using Facebook.Models;
+@using Facebook.Models.Enums;
+
+<fieldset>
+    <legend>@T("Facebook Like box")</legend>
+    <div>
+        <label for="@Html.FieldIdFor(m => m.Href)">@T("Href")</label>
+        @Html.TextBoxFor(m => m.Href, new { @class = "textMedium" })
+        @Html.ValidationMessage("Href", "*")
+    </div>
+    <div>
+        <label for="@Html.FieldIdFor(m => m.Width)">@T("Width")</label>
+        @Html.TextBoxFor(m => m.Width, new { @class = "text-small" })&nbsp;px
+    </div>
+    <div>
+        <label for="@Html.FieldIdFor(m => m.Height)">@T("Height")</label>
+        @Html.TextBoxFor(m => m.Height, new { @class = "text-small" })&nbsp;px
+    </div>
+    <div>
+        <label for="@Html.FieldIdFor(m => m.ColorScheme)">@T("Color scheme")</label>
+        @Html.DropDownListFor(m => m.ColorScheme, Enum.GetValues(typeof(ColorScheme)).Cast<ColorScheme>().Select(x => new SelectListItem { Text = x.ToString(), Value = ((int)x).ToString() }))
+    </div>
+    <div>
+        <label for="@Html.FieldIdFor(m => m.Connections)">@T("Connections")</label>
+        @Html.TextBoxFor(m => m.Connections, new { @class = "text-small" })
+    </div>
+    <div>
+        <label for="@Html.FieldIdFor(m => m.ShowStream)">@T("Show stream")</label>
+        @Html.CheckBoxFor(m => m.ShowStream)
+    </div>
+    <div>
+        <label for="@Html.FieldIdFor(m => m.ShowHeader)">@T("Show header")</label>
+        @Html.CheckBoxFor(m => m.ShowHeader)
+    </div>
+    <div>
+        <label for="@Html.FieldIdFor(m => m.Language)">@T("Language")</label>
+        @Html.TextBoxFor(m => m.Language, new { @class = "text-small" })
+    </div>
+</fieldset>

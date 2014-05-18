@@ -1,0 +1,11 @@
+Name: Facebook
+AntiForgery: enabled
+Author: Wygwam
+Website: http://www.wygwam.com
+Version: 0.7
+OrchardVersion: 1.0.20
+Description: Enables to display Facebook social plugins
+Features:
+    Facebook:
+        Description: Displays Facebook social plugins : LikeBox, ...
+		Category: Widgets

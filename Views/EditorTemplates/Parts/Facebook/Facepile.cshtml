@@ -1,0 +1,24 @@
+﻿@model Facebook.Models.FacepilePart
+@using Orchard.Utility.Extensions;
+@using Facebook.Models;
+
+<fieldset>
+    <legend>@T("Facepile")</legend>
+    <div>
+        <label for="@Html.FieldIdFor(m => m.Url)">@T("Url")</label>
+        @Html.TextBoxFor(m => m.Url, new { @class = "textMedium" })
+        @Html.ValidationMessage("Url", "*")
+    </div>
+    <div>
+        <label for="@Html.FieldIdFor(m => m.Width)">@T("Width")</label>
+        @Html.TextBoxFor(m => m.Width, new { @class = "text-small" })&nbsp;px
+    </div>
+    <div>
+        <label for="@Html.FieldIdFor(m => m.NumRows)">@T("Num rows")</label>
+        @Html.TextBoxFor(m => m.NumRows, new { @class = "text-small" })
+    </div>
+    <div>
+        <label for="@Html.FieldIdFor(m => m.Language)">@T("Language")</label>
+        @Html.TextBoxFor(m => m.Language, new { @class = "text-small" })
+    </div>
+</fieldset>
