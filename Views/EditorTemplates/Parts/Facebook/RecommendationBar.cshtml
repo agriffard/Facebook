@@ -1,0 +1,70 @@
+﻿@model Facebook.Models.RecommendationBarPart
+@using Orchard.Utility.Extensions;
+@using Facebook.Models;
+@using Facebook.Models.Enums;
+
+<fieldset>
+    <legend>@T("Facebook Recommendations Bar")</legend>
+    <div>
+        <label for="@Html.FieldIdFor(m => m.Href)">@T("Recommended url")</label>
+        @Html.TextBoxFor(m => m.Href, new { @class = "text medium" })
+        @Html.ValidationMessage("Href", "*")
+        <span class="hint">@T("The absolute URL of the page that will be liked.")</span>
+    </div>
+</fieldset>
+<fieldset>
+    <div>
+        <label for="@Html.FieldIdFor(m => m.Site)">@T("Site")</label>
+        @Html.TextBoxFor(m => m.Site, new { @class = "text medium" })
+        <span class="hint">@T("A comma separated list of domains to show recommendations for.")</span>
+    </div>
+</fieldset>
+<fieldset>
+    <div>
+        <label for="@Html.FieldIdFor(m => m.MaxAge)">@T("Max age")</label>
+        @Html.TextBoxFor(m => m.MaxAge, new { @class = "text small" })&nbsp;@T("days")
+        <span class="hint">@T("A limit on recommendation and creation time of articles that are surfaced in the plugins. Valid values are 1-180, which specifies the age in days.")</span>
+    </div>
+</fieldset>
+<fieldset>
+    <div>
+        <label for="@Html.FieldIdFor(m => m.ReadTime)">@T("Expand delay")</label>
+        @Html.TextBoxFor(m => m.ReadTime, new { @class = "text small" })&nbsp;seconds
+        <span class="hint">@T("The number of seconds before the plugin will expand. Minimum is 10.")</span>
+    </div>
+</fieldset>
+<fieldset>
+    <div>
+        <label for="@Html.FieldIdFor(m => m.NumRecommendations)">@T("Numumber of recommendations")</label>
+        @Html.TextBoxFor(m => m.NumRecommendations, new { @class = "text small" })
+        <span class="hint">@T("The number of recommendations to display. The maximum value is 5.")</span>
+    </div>
+</fieldset>
+<fieldset>
+    <div>
+        <label for="@Html.FieldIdFor(m => m.Side)">@T("Side")</label>
+        @Html.DropDownListFor(m => m.Side, Enum.GetValues(typeof(ColorScheme)).Cast<ColorScheme>().Select(x => new SelectListItem { Text = x.ToString(), Value = x.ToString() }))
+        <span class="hint">@T("The side of the screen where the plugin will be displayed. This will automatically adjust based on the language, or can be set explicitly. Options are \"left\" or \"right\".")</span>
+    </div>
+</fieldset>
+<fieldset>
+    <div>
+        <label for="@Html.FieldIdFor(m => m.Actions)">@T("Action")</label>
+        @Html.TextBoxFor(m => m.Actions, new { @class = "text medium" })
+        <span class="hint">@T(@"The verb to display on the button. Can be either ""like"" or ""recommend""")</span>
+    </div>
+</fieldset>
+<fieldset>
+    <div>
+        <label for="@Html.FieldIdFor(m => m.ExpandTrigger)">@T("Trigger")</label>
+        @Html.TextBoxFor(m => m.ExpandTrigger, new { @class = "text medium" })
+        <span class="hint">@T("Determines when the plugin expands to show recommendations. See the FAQ for full details on each option.")</span>
+    </div>
+</fieldset>
+<fieldset>
+    <div>
+        <label for="@Html.FieldIdFor(m => m.Ref)">@T("Ref")</label>
+        @Html.TextBoxFor(m => m.Ref, new { @class = "text medium" })
+        <span class="hint">@T("A label for tracking referrals which must be less than 50 characters and can contain alphanumeric characters and some punctuation (currently +/=-.:_). See the FAQ for more details.")</span>
+    </div>
+</fieldset>

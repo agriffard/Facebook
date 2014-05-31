@@ -1,0 +1,3 @@
+﻿@*<script src="http://connect.facebook.net/@Model.Language/all.js#xfbml=1"></script>
+<fb:facepile href="@Model.Url" width="@Model.Width" max_rows="@Model.NumRows"></fb:facepile>*@
+<iframe src="//www.facebook.com/plugins/facepile.php?app_id&amp;href=@(Url.Encode(Model.Href))&amp;width=@Model.Width&amp;max_rows=@Model.NumRows&amp;colorscheme=@Model.ColorScheme.ToString().ToLower()&amp;size=@Model.Size.ToString().ToLower()&amp;action=@Model.Actions&amp;show_count=true&amp;appId=@Model.AppId" scrolling="no" frameborder="0" style="border:none; overflow:hidden;" allowtransparency="true"></iframe>

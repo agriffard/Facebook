@@ -1,0 +1,9 @@
+﻿@model Facebook.Models.FacebookCommentsBoxPart
+@using Orchard.Utility.Extensions;
+@using Facebook.Models;
+@using Facebook.Models.Enums;
+<fieldset>
+    <legend>@T("Facebook Comments")</legend>
+    @Html.EditorFor(m => m.CommentsShown)
+    <label class="forcheckbox" for="@Html.FieldIdFor(m => m.CommentsShown)">@T("Show comments")</label>
+</fieldset>

@@ -1,0 +1,24 @@
+﻿@model Facebook.Settings.FacebookCommentsBoxPartSettings
+@using Orchard.Utility.Extensions;
+@using Facebook.Models.Enums;
+<fieldset>
+    <div>
+        <label for="@Html.FieldIdFor(m => m.Width)">@T("Width")</label>
+        @Html.TextBoxFor(m => m.Width, new { @class = "text small" })&nbsp;px
+        @Html.ValidationMessageFor(model => model.Width)
+    </div>
+    <div>
+        @Html.LabelFor(model => model.NumberOfPosts, T("Number of posts"))
+        @Html.TextBoxFor(model => model.NumberOfPosts, new { @class = "text small" })
+        @Html.ValidationMessageFor(model => model.NumberOfPosts)
+    </div>
+    <div>
+        <label for="@Html.FieldIdFor(m => m.ColorScheme)">@T("Color scheme")</label>
+        @Html.DropDownListFor(m => m.ColorScheme, Enum.GetValues(typeof(ColorScheme)).Cast<ColorScheme>().Select(x => new SelectListItem { Text = x.ToString(), Value = x.ToString() }))
+    </div>
+    <div>
+        <label for="@Html.FieldIdFor(m => m.OrderBy)">@T("OrderBy")</label>
+        @Html.TextBoxFor(m => m.OrderBy, new { @class = "text medium" })
+        @Html.ValidationMessageFor(model => model.OrderBy)
+    </div>
+</fieldset>

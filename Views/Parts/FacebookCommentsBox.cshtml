@@ -1,0 +1,10 @@
+﻿@using Orchard.Utility.Extensions;
+@using Facebook.Settings;
+@{
+    var commentsBox = (Facebook.Models.FacebookCommentsBoxPart)Model.ContentPart;
+    var settings = commentsBox.TypePartDefinition.Settings.GetModel<FacebookCommentsBoxPartSettings>();
+}
+@if(commentsBox.CommentsShown){
+<div class="fb-comments" data-href="@ViewContext.RequestContext.HttpContext.Request.ToUrlString()" data-num-posts="@settings.NumberOfPosts" data-width="@settings.Width" data-colorscheme="@settings.ColorScheme.ToLower()">
+</div>
+}
