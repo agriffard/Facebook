@@ -7,35 +7,39 @@
     <legend>@T("Facebook Like box")</legend>
     <div>
         <label for="@Html.FieldIdFor(m => m.Href)">@T("Href")</label>
-        @Html.TextBoxFor(m => m.Href, new { @class = "textMedium" })
+        @Html.TextBoxFor(m => m.Href, new { @class = "text medium" })
         @Html.ValidationMessage("Href", "*")
     </div>
     <div>
         <label for="@Html.FieldIdFor(m => m.Width)">@T("Width")</label>
-        @Html.TextBoxFor(m => m.Width, new { @class = "text-small" })&nbsp;px
+        @Html.TextBoxFor(m => m.Width, new { @class = "text small" })&nbsp;px
     </div>
     <div>
         <label for="@Html.FieldIdFor(m => m.Height)">@T("Height")</label>
-        @Html.TextBoxFor(m => m.Height, new { @class = "text-small" })&nbsp;px
+        @Html.TextBoxFor(m => m.Height, new { @class = "text small" })&nbsp;px
     </div>
     <div>
         <label for="@Html.FieldIdFor(m => m.ColorScheme)">@T("Color scheme")</label>
-        @Html.DropDownListFor(m => m.ColorScheme, Enum.GetValues(typeof(ColorScheme)).Cast<ColorScheme>().Select(x => new SelectListItem { Text = x.ToString(), Value = ((int)x).ToString() }))
+        @Html.DropDownListFor(m => m.ColorScheme, Enum.GetValues(typeof(ColorScheme)).Cast<ColorScheme>().Select(x => new SelectListItem { Text = x.ToString(), Value = x.ToString() }))
     </div>
     <div>
-        <label for="@Html.FieldIdFor(m => m.Connections)">@T("Connections")</label>
-        @Html.TextBoxFor(m => m.Connections, new { @class = "text-small" })
-    </div>
-    <div>
-        <label for="@Html.FieldIdFor(m => m.ShowStream)">@T("Show stream")</label>
         @Html.CheckBoxFor(m => m.ShowStream)
+        <label class="forcheckbox" for="@Html.FieldIdFor(m => m.ShowStream)">@T("Show stream")</label>
     </div>
     <div>
-        <label for="@Html.FieldIdFor(m => m.ShowHeader)">@T("Show header")</label>
         @Html.CheckBoxFor(m => m.ShowHeader)
+        <label class="forcheckbox" for="@Html.FieldIdFor(m => m.ShowHeader)">@T("Show header")</label>
     </div>
     <div>
-        <label for="@Html.FieldIdFor(m => m.Language)">@T("Language")</label>
-        @Html.TextBoxFor(m => m.Language, new { @class = "text-small" })
+        @Html.CheckBoxFor(m => m.ShowBorder)
+        <label class="forcheckbox" for="@Html.FieldIdFor(m => m.ShowBorder)">@T("Show border")</label>
+    </div>
+    <div>
+        @Html.CheckBoxFor(m => m.ShowFaces)
+        <label class="forcheckbox" for="@Html.FieldIdFor(m => m.ShowFaces)">@T("Show faces")</label>
+    </div>
+    <div>
+        @Html.CheckBoxFor(m => m.ForceWall)
+        <label class="forcheckbox" for="@Html.FieldIdFor(m => m.ForceWall)">@T("Force wall")</label>
     </div>
 </fieldset>

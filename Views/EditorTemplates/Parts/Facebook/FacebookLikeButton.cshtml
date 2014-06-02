@@ -1,0 +1,36 @@
+﻿@model Facebook.Models.FacebookLikeButtonPart
+@using Orchard.Utility.Extensions;
+@using Facebook.Models;
+@using Facebook.Models.Enums;
+<fieldset>
+    <legend>@T("Facebook Like Button")</legend>
+    <div>
+        <label for="@Html.FieldIdFor(m => m.Width)">@T("Width")</label>
+        @Html.TextBoxFor(m => m.Width, new { @class = "text small" })&nbsp;px
+    </div>
+    <div>
+        <label for="@Html.FieldIdFor(m => m.ColorScheme)">@T("Color scheme")</label>
+        @Html.DropDownListFor(m => m.ColorScheme, Enum.GetValues(typeof(ColorScheme)).Cast<ColorScheme>().Select(x => new SelectListItem { Text = x.ToString(), Value = x.ToString().ToLower() }))
+    </div>
+    <div>
+        @Html.LabelFor(m => m.Layout, T("Layout"))
+        @Html.DropDownListFor(m => m.Layout, Enum.GetValues(typeof(LikeButtonLayout)).Cast<LikeButtonLayout>().Select(x => new SelectListItem { Text = x.ToString(), Value = x.ToString().ToLower() }))
+    </div>
+    <div>
+        @Html.EditorFor(m => m.Share)
+        <label for="@Html.FieldIdFor(m => m.Share)" class="forcheckbox">@T("Share")</label>
+    </div>
+    <div>
+        @Html.EditorFor(m => m.ShowFaces)
+        <label for="@Html.FieldIdFor(m => m.ShowFaces)" class="forcheckbox">@T("Show faces")</label>
+    </div>
+    <div>
+        @Html.LabelFor(m => m.Action, T("Verb to display"))
+        @Html.DropDownListFor(m => m.Action, Enum.GetValues(typeof(LikeButtonAction)).Cast<LikeButtonAction>().Select(x => new SelectListItem { Text = x.ToString(), Value = x.ToString().ToLower() }))
+    </div>
+    <div>
+        @Html.LabelFor(m => m.Ref, T("Ref"))
+        @Html.TextBoxFor(m => m.Ref, new { @class = "text medium" })
+        @Html.ValidationMessageFor(m => m.Ref)
+    </div>
+</fieldset>

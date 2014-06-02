@@ -8,17 +8,14 @@ using Orchard.Security;
 using Orchard.UI.Notify;
 using Orchard.Utility.Extensions;
 
-namespace Facebook.Controllers
-{
+namespace Facebook.Controllers {
     [ValidateInput(false)]
-    public class AdminController : Controller
-    {
+    public class AdminController : Controller {
         private readonly IFacebookService _FacebookService;
 
         public AdminController(
             IFacebookService FacebookService,
-            IOrchardServices services)
-        {
+            IOrchardServices services) {
             _FacebookService = FacebookService;
             Services = services;
             T = NullLocalizer.Instance;
@@ -26,22 +23,5 @@ namespace Facebook.Controllers
 
         public IOrchardServices Services { get; set; }
         public Localizer T { get; set; }
-
-        public ActionResult CheckApp(string returnUrl)
-        {
-            if (!Services.Authorizer.Authorize(StandardPermissions.SiteOwner, T("Couldn't check Facebook")))
-                return new HttpUnauthorizedResult();
-
-            //var result = _FacebookService.VerifyKey(new Uri(HttpContext.Request.ToApplicationRootUrlString()));
-
-            //if (result) {
-            //    Services.Notifier.Information(T("The key is valid"));
-            //}
-            //else {
-            //    Services.Notifier.Warning(T("The key is invalid"));
-            //} 
-
-            return this.RedirectLocal(returnUrl);
-        }
     }
 }

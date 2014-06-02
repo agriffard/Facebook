@@ -5,8 +5,8 @@ using Orchard.Environment.Extensions;
 
 namespace Facebook.Handlers {
     [OrchardFeature("Facebook.SocialPlugins")]
-    public class FacepilePartHandler : ContentHandler {
-        public FacepilePartHandler(IRepository<FacepilePartRecord> repository) {
+    public class FacebookLikeButtonPartHandler : ContentHandler {
+        public FacebookLikeButtonPartHandler(IRepository<FacebookLikeButtonPartRecord> repository) {
             Filters.Add(StorageFilter.For(repository));
         }
     }

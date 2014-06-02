@@ -1,0 +1,6 @@
+﻿@using Orchard.Utility.Extensions;
+@{
+    var likeButton = (Facebook.Models.FacebookLikeButtonPart)Model.ContentPart;
+}
+<div class="fb-like" data-share="@likeButton.Share.ToString().ToLower()" data-layout="@likeButton.Layout" data-width="@likeButton.Width" data-show-faces="@likeButton.ShowFaces.ToString().ToLower()" data-action="@likeButton.Action" data-colorscheme="@likeButton.ColorScheme.ToLower()" data-ref="@likeButton.Ref" data-href="@ViewContext.RequestContext.HttpContext.Request.ToUrlString()">
+</div>

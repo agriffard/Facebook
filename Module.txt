@@ -1,11 +1,24 @@
 Name: Facebook
 AntiForgery: enabled
-Author: Wygwam
-Website: http://www.wygwam.com
-Version: 0.7
-OrchardVersion: 1.0.20
-Description: Enables to display Facebook social plugins
+Author: Antoine Griffard
+Website: http://antoinegriffard.com
+Version: 0.8
+OrchardVersion: 1.8
+Description: Facebook module
+Category: Social
 Features:
     Facebook:
-        Description: Displays Facebook social plugins : LikeBox, ...
-		Category: Widgets
+		Name: Facebook
+        Description: Facebook App settings
+		Category: Social
+		Dependencies: Orchard.jQuery
+    Facebook.SocialPlugins:        
+        Name: Facebook social plugins
+		Description: Displays Facebook social plugins : LikeButton, LikeBox, Facepile, Activity feed, Recommandations Feed,Recommandations Bar.
+		Category: Social
+		Dependencies: Orchard.Widgets, Facebook
+	Facebook.CommentsBox:
+		Name: Facebook Comments Box
+        Description: Adds a Facebook Comments Box part.
+		Category: Social
+		Dependencies: Facebook

@@ -63,7 +63,7 @@ namespace Facebook {
 
             return 2;
         }
-            
+
         public int UpdateFrom2() {
             SchemaBuilder.CreateTable("ActivityFeedPartRecord", table => table
                 .ContentPartRecord()
@@ -145,6 +145,34 @@ namespace Facebook {
                 .WithSetting("Stereotype", "Widget"));
 
             return 5;
+        }
+
+        public int UpdateFrom5() {
+            SchemaBuilder.CreateTable(typeof(FacebookLikeButtonPartRecord).Name,
+                table => table
+                    .ContentPartRecord()
+                    .Column<int>("Width")
+                    .Column<string>("ColorScheme")
+                    .Column<string>("Layout")
+                    .Column<bool>("Share")
+                    .Column<bool>("ShowFaces")
+                    .Column<string>("Action")
+                    .Column<string>("Ref")
+                );
+
+            ContentDefinitionManager.AlterPartDefinition(typeof(FacebookLikeButtonPartRecord).Name, cfg => cfg
+                .Attachable()
+                .WithDescription("Adds a Facebook Button to the content item."));
+
+            ContentDefinitionManager.AlterTypeDefinition("FacebookLikeButtonWidget",
+                cfg => cfg
+                    .WithPart(typeof(FacebookLikeButtonPart).Name)
+                    .WithPart("WidgetPart")
+                    .WithPart("CommonPart")
+                    .WithSetting("Stereotype", "Widget")
+                );
+
+            return 6;
         }
     }
 }

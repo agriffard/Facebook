@@ -1,24 +1,37 @@
 ﻿@model Facebook.Models.FacepilePart
 @using Orchard.Utility.Extensions;
 @using Facebook.Models;
+@using Facebook.Models.Enums;
 
 <fieldset>
     <legend>@T("Facepile")</legend>
     <div>
-        <label for="@Html.FieldIdFor(m => m.Url)">@T("Url")</label>
-        @Html.TextBoxFor(m => m.Url, new { @class = "textMedium" })
-        @Html.ValidationMessage("Url", "*")
+        <label for="@Html.FieldIdFor(m => m.Href)">@T("Href")</label>
+        @Html.TextBoxFor(m => m.Href, new { @class = "text medium" })
+        @Html.ValidationMessage("Href", "*")
     </div>
     <div>
         <label for="@Html.FieldIdFor(m => m.Width)">@T("Width")</label>
-        @Html.TextBoxFor(m => m.Width, new { @class = "text-small" })&nbsp;px
+        @Html.TextBoxFor(m => m.Width, new { @class = "text small" })&nbsp;px
     </div>
     <div>
         <label for="@Html.FieldIdFor(m => m.NumRows)">@T("Num rows")</label>
-        @Html.TextBoxFor(m => m.NumRows, new { @class = "text-small" })
+        @Html.TextBoxFor(m => m.NumRows, new { @class = "text small" })
     </div>
     <div>
-        <label for="@Html.FieldIdFor(m => m.Language)">@T("Language")</label>
-        @Html.TextBoxFor(m => m.Language, new { @class = "text-small" })
+        <label for="@Html.FieldIdFor(m => m.Actions)">@T("Actions")</label>
+        @Html.TextBoxFor(m => m.Actions, new { @class = "text small" })
+    </div>
+    <div>
+        <label for="@Html.FieldIdFor(m => m.Size)">@T("Size")</label>
+        @Html.TextBoxFor(m => m.Size, new { @class = "text small" })
+    </div>
+    <div>
+        <label for="@Html.FieldIdFor(m => m.ColorScheme)">@T("Color scheme")</label>
+        @Html.DropDownListFor(m => m.ColorScheme, Enum.GetValues(typeof(ColorScheme)).Cast<ColorScheme>().Select(x => new SelectListItem { Text = x.ToString(), Value = x.ToString() }))
+    </div>
+    <div>
+        <label for="@Html.FieldIdFor(m => m.AppId)">@T("App Id")</label>
+        @Html.TextBoxFor(m => m.AppId, new { @class = "text medium" })
     </div>
 </fieldset>

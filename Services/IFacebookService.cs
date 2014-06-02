@@ -4,10 +4,11 @@ using System.Web;
 using Orchard;
 using Facebook.Models;
 
-namespace Facebook.Services
-{
-    public interface IFacebookService : IDependency
-    {
-        // UserProfile GetFacebookUserProfile();
+namespace Facebook.Services {
+    public interface IFacebookService : IDependency {
+        /// <summary>
+        /// The Facebook settings
+        /// </summary>
+        FacebookSettingsPart SettingsPart { get; }
     }
 }
