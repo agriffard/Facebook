@@ -144,12 +144,6 @@
     <Content Include="Views\Parts\Facepile.cshtml" />
     <Content Include="Views\EditorTemplates\Parts\Facebook\Facepile.cshtml" />
     <Content Include="web.config" />
-    <Content Include="web.Debug.config">
-      <DependentUpon>web.config</DependentUpon>
-    </Content>
-    <Content Include="web.Release.config">
-      <DependentUpon>web.config</DependentUpon>
-    </Content>
     <Content Include="Views\EditorTemplates\Parts\Facebook\ActivityFeed.cshtml" />
     <Content Include="Views\Parts\ActivityFeed.cshtml" />
     <Content Include="Views\EditorTemplates\Parts\Facebook\RecommendationFeed.cshtml" />
