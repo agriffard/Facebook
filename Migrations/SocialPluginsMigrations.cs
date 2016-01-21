@@ -160,7 +160,7 @@ namespace Facebook {
                     .Column<string>("Ref")
                 );
 
-            ContentDefinitionManager.AlterPartDefinition(typeof(FacebookLikeButtonPartRecord).Name, cfg => cfg
+            ContentDefinitionManager.AlterPartDefinition(typeof(FacebookLikeButtonPart).Name, cfg => cfg
                 .Attachable()
                 .WithDescription("Adds a Facebook Button to the content item."));
 
@@ -174,5 +174,4 @@ namespace Facebook {
 
             return 6;
         }
-    }
 }
